@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<style>
+
+    h1{
+        display: flex;
+        justify-content: center;
+    }
+
+    #valid{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* flex-direction: column; */
+        margin-top: 30px;
+        padding: 10px; 
+        /* border: none; */
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        /* /* width: 50%; */
+    }
+    input:focus{
+        border: 2px solid red;
+        outline: none;
+    }
+
+    input[type="submit"]{
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    body{
+        background-color: aqua;
+    }
+
+</style>
+<body>
+<h1>Validation</h1>
+    <div id="valid">
+      <form action="" onsubmit="return validateFrom()">
+        <input type="text" id="username" placeholder="First Name">
+        <p id="userError"></p>
+        <input type="password" id="password" placeholder="Password">
+        <p id="passError"></p>
+        <input type="submit" id="submit">
+      </form>
+    </div>
+
+   
+
+    <script>
+        let username = document.getElementById("username")
+        let password = document.getElementById("password")
+        let submit = document.getElementById("submit")
+        let Error = document.getElementById("userError")
+        let Error2 = document.getElementById("passError")
+        let flag = 1
+        
+        function validateFrom() {
+            if (username.value == "") {
+               Error.innerHTML = "First name fill first"
+            //    flag = 0
+            }
+            else if (username.value.length  < 3){
+                Error.innerHTML = "Please enter above 3 number"
+                // flag = 0
+            }else{
+                Error.innerHTML = ''  
+                // flag = 1
+            }
+            
+            if (password.value == "") {
+                Error2.innerHTML = "Password is empty"
+                // flag = 0
+            }
+            else if (username.value.length  < 3){
+                Error2.innerHTML = "Please enter above 3 number"
+                // flag = 0
+            }
+            else{
+                Error2.innerHTML = '' 
+                // flag = 1 
+            }
+            // if (flag) {
+            //     return true
+            // }
+            // else{
+            //     return false
+            // }
+            // return false
+            return true
+        }
+
+          submit.addEventListener("click",function(){
+                console.log(username.value);
+                console.log(password.value);
+            })
+
+        
+
+    </script> 
+
+    
+</body>
+</html>

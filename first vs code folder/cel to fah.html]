@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        position: relative;
+        padding: 10px;
+        top: 55px;
+        left: 95px;
+        margin: 20px;
+    }
+</style>
+<body>
+    
+    <div id="container">
+        <div>
+            <label for="cel link">cel</label>
+            <input type="number" value="0" id="cel link">
+        </div>
+        <div>
+            <label for="feh linkk">feh</label>
+            <input type="number" value="32" id="feh linkk">
+        </div>
+    </div>
+
+    <script>
+       let cal = document.getElementById('cel link')
+       let fah = document.getElementById('feh linkk')
+
+       cal.addEventListener("input",function(){
+        // console.log(this.value);
+        let cal = this.value
+        let B = cal * (9/5) + 32
+        if (!Number.isInteger(B)) {
+            B = B.toFixed(4)
+        }
+        fah.value= B
+       })
+
+       fah.addEventListener("input",function(){
+        // console.log(this.value);
+        let Fah = this.value
+        let B = (Fah - 32) * 5/9
+        if (!Number.isInteger(B)) {
+            B = B.toFixed(4)
+        }
+        cal.value=B
+       })
+
+      
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body{
+    position: relative;
+    padding: 0%;
+    margin: 0%;
+}
+
+#correct{
+    color: red;
+    border: 1px solid yellow;
+    padding: 50px;
+}
+

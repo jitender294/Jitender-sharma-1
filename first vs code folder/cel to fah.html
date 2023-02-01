@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cel to Fah</title>
+</head>
+<body>
+
+    <input type="number" value="0" id="cel">
+    <input type="number" value="32" id="fah">
+    
+    <script>
+        let cel = document.getElementById('cel')
+        let fah = document.getElementById('fah')
+        cel.addEventListener("input",function () {
+            // console.log("now this is work");
+            let A = this.value
+            let B = (A * 9/5) + 32 
+            if (!Number.isInteger(B)) {
+               B = B.toFixed(4)
+            }
+            fah.value = B
+        })
+
+        fah.addEventListener("input",function () {
+            // console.log("now this is work");
+            let A = this.value
+            let B = (A - 32) * 5/9
+            if (!Number.isInteger(B)) {
+              B = B.toFixed(4)
+            }  
+            cel.value = B
+        })
+    </script>
+</body>
+</html>

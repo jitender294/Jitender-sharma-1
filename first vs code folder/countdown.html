@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<body>
+    
+    <div id="container">
+        <span class="Hr num" id="HR">00</span>
+        <span class="text" id>Hr</span>
+        <span class="Min num" id="Min">00</span>
+        <span class="text">Min</span>
+        <span class="Sec num" id="Sec">00</span>
+        <span class="text">Sec</span>
+        <span class="Count num" id="Count">0</span>
+    </div>
+
+    <div id="con-button">
+        <button class="Start" onclick="Start()">Start</button>
+        <button class="Stop" onclick="Stop()">Stop</button>
+        <button class="Reset" onclick="Reset()">Reset</button>
+    </div>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* text-align: center; */
+            flex-direction: column;
+            margin-top: 35vh;    
+            background-color: bisque;    
+        }
+
+        .num{
+            padding: 10px;
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        .text{
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        button{
+            width: 100px;
+            height: 40px;
+            position: relative;
+            left: -10px;
+            margin-top: 20px;
+            margin-left: 40px;
+            border-radius: 20px;
+            border: none;
+            text-transform: capitalize;
+        }
+
+        .Start{
+            color: white;
+            font-weight: bold;
+            background-color: #19BC9B;
+        }
+
+        .Stop{
+            color: white;
+            font-weight: bold;
+            background-color: #3396D4;
+        }
+
+        .Reset{
+            color: white;
+            font-weight: bold;
+            background-color: #E64C3D;
+        }
+
+    </style>
+
+    <script>
+        let HR = 0
+        let Min = 0
+        let Sec = 0
+        let Count = 0
+
+        var timer = false
+
+        function Start() {
+           timer = true
+           StopWatch()
+        }
+        
+        function Stop() {  
+            timer = false
+        }
+
+        function Reset() {  
+            timer = false
+            document.getElementById("Count").innerHTML = "00"
+            document.getElementById("Sec").innerHTML = "00"
+            document.getElementById("Min").innerHTML = "00"
+            document.getElementById("HR").innerHTML = "00"
+        }
+
+        function StopWatch() {
+           if(timer == true) {
+            Count = Count+1
+            document.getElementById("Count").innerHTML = Count
+           
+            if (Count==100) {
+                Sec++
+                Count=0
+                document.getElementById("Sec").innerHTML = Sec
+            }
+            if (Sec==60) {
+                Min++
+                Sec=00
+                document.getElementById("Min").innerHTML = Min
+            }
+             if (Min==60) {
+                HR++
+                Min=0
+                Sec=0
+                document.getElementById("HR").innerHTML = HR
+             }
+             if (Sec<10) {
+                document.getElementById("Sec").innerHTML = "0" + Sec
+             }
+             if (Min<10) {
+                document.getElementById("Min").innerHTML = "0" + Min
+             }
+             if (HR<10) {
+                document.getElementById("HR").innerHTML = "0" + HR
+             }
+            setTimeout("StopWatch()", 10)
+           }
+        }
+
+    </script>
+
+</body>
+</html>

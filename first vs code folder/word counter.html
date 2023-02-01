@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+</head>
+<body>
+
+    <div style="position: relative; left: 100px;">Word and Character count</div>
+    <textarea name="textarea" id="textArea" cols="50" rows="20"></textarea>
+    <div></div>
+    <span id="word">0</span> words and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Character">0</span> Characters
+
+    <script>
+
+        let textArea = document.getElementById("textArea")
+        let word = document.getElementById("word")
+        let Character = document.getElementById("Character")
+
+        // textArea.addEventListener("input", function(params) {
+        //     let value = textArea.value // character i think
+        //     let length = value.length     // number i think
+        //     // console.log(value);
+        //     // console.log(length);  
+        //     // console.log(value);    
+        //     Character.innerHTML = length  
+
+        //     value=value.trim()
+        //     console.log(value);  
+        //     let words = value.split(" ")
+        //     let cleanList = words.filter(function (elm) {
+        //         return elm != ""  
+        //     })
+       
+        //     // console.log(words);
+        //     let A = cleanList.length
+        //     word.innerHTML = A  
+        //     console.log(A);
+        // })
+
+        textArea.addEventListener("input", function(params) {
+            let value = textArea.value // character i think
+            let length = value.length     // number i think
+            // console.log(value);
+            // console.log(length);  
+            // console.log(value);    
+            Character.innerHTML = length  
+
+            value=value.trim()
+            console.log(value);  
+            let words = value.split(" ")
+            let cleanList = words.filter(function (elm) {
+                return elm != ""  
+            })
+       
+            // console.log(words);
+            let A = cleanList.length  
+            word.innerHTML = A  
+            console.log(A);
+        })
+       
+    </script>
+    
+</body>
+</html>
